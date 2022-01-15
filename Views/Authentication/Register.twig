@@ -1,0 +1,47 @@
+
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    <p class="text-danger" id="niceError">{{ niceError }}</p>
+    {% if registration_code is defined %}
+        <input type="hidden" name="RegistrationCode" value="{{ registration_code }}"/>
+    {% else %}
+        <div class="form-group first invitationDependent">
+            <label for="name" id="InvitationCode">Registration Code</label>
+            <input type="text" class="form-control" id="invite_entry" name="RegistrationCode">
+        </div>
+    {% endif %}
+
+
+
+    <div class="form-group">
+        <label for="name" id="Identifier">Full name</label>
+        <input type="text" class="form-control" id="name" name="Identity" required="required">
+
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="RegistrationEmail" required="required">
+    </div>
+
+		<div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" id="phone" name="RegistrationPhone" required="required">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="Password" required="required">
+
+    </div>
+
+    <div class="form-group last mb-3">
+        <label for="confirmpassword">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmpassword" required="required">
+
+    </div>
+
+    <button class="btn btn-lg btn-danger btn-block" type="submit">Register</button>
+    <span class="d-block text-center my-4 text-muted">— or —</span>
+    <button class="btn btn-lg btn-primary btn-block GT" id="Login" type="button">Login</button>
+
+

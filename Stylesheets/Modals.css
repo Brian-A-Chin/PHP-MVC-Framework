@@ -1,0 +1,146 @@
+.loader {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/Assets/Icons/loader.gif");
+    background-size: 80px 80px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-color:#ffffffc7;
+    z-index:9999;
+}
+
+.nested-loader {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/Assets/Icons/loader.gif");
+    background-size: 80px 80px;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-color:#ffffffc7;
+    z-index:9999;
+}
+
+.clear-btn {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 0;
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 0px solid transparent;
+    background-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.r-border {
+    border-right: 1px solid #21252936;
+}
+
+.duo-btn{
+    width:47%;
+}
+
+td > .clear-btn:hover {
+    background-color:#fff!important;
+    border-radius:7px!important;
+
+}
+
+.clear-btn-red {
+    color: #d9534f;
+
+}
+.clear-btn-orange {
+    color: #f77038;
+}
+
+.clear-btn-green {
+    color: #2e8e5d;
+}
+
+.clear-btn-blue {
+    color: #4c9ebd
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.overlay {
+    z-index: 1050;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .9;
+    display:none;
+}
+
+
+
+.overlay-black {
+    background-color: #000000;
+}
+
+.overlay-white {
+    background-color: #ffffff;
+}
+
+.dialog-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 600px;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 2%;
+    border-radius: 7px;
+    position: relative;
+    z-index: 9999;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.main-dialog{
+    display:none;
+}
+
+.modal-body .checkbox {
+    padding: 7px 0 7px 0;
+}
+
+.modal-body input[type=checkbox] {
+
+    margin-left: 7px;
+}

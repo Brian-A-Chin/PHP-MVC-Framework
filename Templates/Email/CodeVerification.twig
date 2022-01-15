@@ -1,0 +1,11 @@
+<p>Hello {{ first_name }},</p>
+
+
+{% if login_attempts >= 2 %}
+    <p>We've noticed that there are several unsuccessful login attempts made on your account. For your security please use the code below to login.</p>
+{% else %}
+    <p>Someone tried to log into your account from an unknown device.<br>If this was you, please use the following code to login:</p>
+{%  endif %}
+
+<h2><b>{{ verification_code }}</b></h2>
+<p>If this wasn&#39;t you, please reset your password to secure your account as soon as possible. ({{ login_attempts }})</p>

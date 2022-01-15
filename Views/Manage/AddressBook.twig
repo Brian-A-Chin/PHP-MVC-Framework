@@ -1,0 +1,68 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">My Addresses</h1>
+					<p>You can use these address for autofilling billing/contact throughout the site.</p>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="tall-tile-container default-width center">
+                                <div class="tile center-center" data-action="addressUpdate">
+                                    <h1><i class="fas fa-plus"></i></h1>
+                                    <p><a href="/account/manage//addressUpdate">Add Address</a></p>
+                                </div>
+
+                                {% for key, value in Addresses %}
+                                <div class="tile center-center">
+                                    <small class="text-left">
+                                        <b>{{ value['FullName'] }}</b>
+                                        <address>
+                                            {{ value['AddressOne'] }}<br>
+                                            {{ value['City'] }}, {{ value['State'] }} {{ value['Zipcode'] }}<br>
+                                            {{ value['Country'] }}<br>
+                                            Phone number:{{ value['Phone'] }}
+                                        </address>
+                                        {% if value['PrimaryAddress'] == 0  %}
+                                            <a href="#" class="postRequest" data-url="MakePrimaryAddress" data-keys="MakePrimaryAddress" data-values="{{ value['ID'] }}">Set as Primary</a>
+                                        {% else %}
+                                            <a href="#"><b>Primary Address</b></a>
+                                        {% endif %}
+                                    </small>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li><small><a href="/account/manage//addressUpdate&ref={{ value['ID'] }}">Edit</a></small></li>
+                                        {% if value['PrimaryAddress'] == 0  %}
+                                            <li><small><a href="#" class="confirm" data-url="RemoveAddress" data-confirm="postRequest"  data-keys="RemoveAddress" data-values="{{ value['ID'] }}">Remove</a></small></li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            {%  endfor %}
+                            </div>
+
+                        </div>
+                        <!-- ./card-body -->
+                        <div class="card-footer">
+
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+</div>

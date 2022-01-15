@@ -1,0 +1,50 @@
+<div class="content-wrapper template-wrapper" >
+    <div class="template-super-container">
+        <div class="template-side-bar">
+            <div class="menu-header">
+                <input type="text" class="form-control filter" data-filter-target="templates" placeholder="Filter">
+            </div>
+
+            <div class="template-list" id="templates">
+                <ul>
+                    {% for key, v in Templates %}
+                        <p>{{ key }}</p>
+                        {% for value in Templates[key] %}
+                            <li class="load-template filterable" data-path="{{ value['Location'] }}" data-modified="{{ value['Modified'] }}">
+                                {{ value['Name'] }}
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="template-stage">
+            <div class="stage-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <small class="text-muted hide">Last Modified:<br><span id="modify-date"></span></small>
+                        </div>
+                        <div class="col text-center">
+                            <small id="template-title"></small>
+                        </div>
+                        <div class="col">
+                            <div class="row justify-content-end">
+                                <div class="col-5">
+                                    <button class="btn btn-block btn-primary btn-sm hide" id="save">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stage">
+                <div class="nested-loader"></div>
+                <div id="template-editor-container"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

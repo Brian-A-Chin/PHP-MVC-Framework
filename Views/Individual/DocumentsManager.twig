@@ -1,0 +1,97 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/account">Admin</a></li>
+                        <li class="breadcrumb-item active">Manage documents</li>
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Upload new documents</h5>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <h4>Manage Documents</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut nibh in elit volutpat rutrum.</p>
+
+                                <form enctype="multipart/form-data" action="ApprovedDocuments" id="upld-form" method="post">
+                                    <input type="hidden" name="Account" value="{{ GET['account'] }}">
+                                    <input type="hidden" name="ApprovedDocuments" id="attachmentList">
+                                    <label for="attachments">
+                                        <p id="addAttachments"><i class="fas fa-upload"></i>Choose a file...</p>
+                                        <input type="file" name="UploadDocuments[]" id="attachments" style="display:none" multiple="multiple">
+                                    </label>
+                                    <div id="attachmentsPreviewContainer">
+                                        <ul id="attachmentsPreview"></ul>
+                                    </div>
+                                    <button type="button" class="btn btn-primary upload-btn">Upload</button>
+                                    <div id="upload-errors"></div>
+                                </form>
+
+
+                            </div>
+                        </div>
+                        <!-- ./card-body -->
+                        <div class="card-footer">
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+
+                    <div class="card collapsed-card">
+                        <div class="card-header">
+                            <h5 class="card-title">Current Documents</h5>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group input-group-sm" style="width: 50%;margin:auto">
+                                <input type="text" class="form-control filter" data-filter-target="docs" placeholder="Filter">
+                            </div>
+                            <hr>
+                            <div class="tile-container default-width center" id="docs">
+                                {% for Document in Documents %}
+                                    <div class="tile center-center filterable link pointer" data-type="DIV" data-url="{{ Document['Location'] }}">
+                                        <p>{{ Document['Name'] }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!-- ./card-body -->
+                        <div class="card-footer">
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+</div>

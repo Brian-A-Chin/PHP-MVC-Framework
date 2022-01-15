@@ -1,0 +1,24 @@
+<h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+<p class="text-danger" id="niceError">{{ niceError }}</p>
+<div class="form-group first">
+    <label for="login-type">Email or Phone</label>
+    <input type="text" class="form-control" id="login-type" name="Login" required="required">
+
+</div>
+<div class="form-group last mb-3">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="Password" required="required">
+
+</div>
+<div class="d-flex mb-5 align-items-center">
+    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+        <input type="checkbox" checked="checked" name="Remember">
+        <div class="control__indicator"></div>
+    </label>
+    <span class="ml-auto"><a href="#" class="forgot-pass GT" id="ForgotPassword">Forgot Password</a></span>
+</div>
+<input type="submit" value="Log In" class="btn btn-block btn-primary">
+<span class="d-block text-center my-4 text-muted">— or —</span>
+<button type="button" value="Log In" class="btn btn-block btn-danger GT" id="Register">Register</button>
+
+

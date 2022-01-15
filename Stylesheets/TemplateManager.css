@@ -1,0 +1,93 @@
+
+.template-wrapper{
+    display: flex;
+    padding: 0;
+    padding-bottom:unset!important;
+    height: calc(100vh - 200px);
+    overflow: hidden;
+}
+.template-super-container{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.template-side-bar{
+    width: 300px;
+    border-right: 1px solid #ddd;
+}
+
+.template-stage{
+    flex: 1;
+
+}
+
+.template-list,.menu-header{
+    padding: 10px;
+}
+
+.template-list {
+    overflow: scroll;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.template-list p{
+    color: #61767d;
+}
+
+.template-list li{
+    padding: 5px 5px 5px 15px;
+}
+
+
+
+.stage{
+    background-color: #fff;
+    position: relative;
+}
+
+.stage-header,.menu-header{
+    height: 65px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ddd;
+}
+
+.stage-header .align-items-center{
+    height: 65px;
+}
+
+.load-template{
+    cursor: pointer;
+    color: lightskyblue;
+
+}
+
+
+.load-template:hover{
+    text-decoration: underline;
+    color: #3494d0;
+}
+
+.ql-editor {
+    height: calc(100vh - 130px) !important;
+}
+
+.ql-editor {
+    counter-reset: line;
+    padding-left: 0;
+}
+
+.ql-editor p:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888
+}

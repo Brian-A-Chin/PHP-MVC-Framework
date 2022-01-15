@@ -1,0 +1,13 @@
+
+
+RewriteEngine On
+RewriteBase /Account
+RewriteRule ^index.php$ - [L]
+
+# Include in the next line all folders to exclude
+RewriteCond %{REQUEST_URI}  !(/login) [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
+

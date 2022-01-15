@@ -1,0 +1,228 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/account/admin//ViewPermissionGroups">Permission Groups</a></li>
+                        {% if PermissionsData.ID is defined %}
+                            <li class="breadcrumb-item active">Update Permission Group</li>
+                        {%  else %}
+                            <li class="breadcrumb-item active">Create New Permission Group</li>
+                        {%  endif %}
+
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="aJaxForm" method="post">
+                                <div class="col-md-6">
+                                    <div class="form-group field--not-empty">
+                                        <h4>Permission Name</h4>
+
+                                        {% if PermissionsData.ID is defined %}
+                                            <input type="hidden" id="pid" name="PermissionGroupID" value="{{ PermissionsData.EncryptedID }}">
+                                            <input type="text" class="form-control required" id="permission-name" name="Name" value="{{ PermissionsData.Name }}" required="required">
+                                        {%  else %}
+                                            <input type="text" class="form-control required" id="permission-name" name="Name" required="required">
+                                        {%  endif %}
+                                        <hr>
+                                    </div>
+                                </div>
+                                <h4>Permissions</h4>
+                                <br>
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link active" id="v-pills-admin-tab" data-toggle="pill" href="#v-pills-admin" role="tab" aria-controls="v-pills-admin" aria-selected="true">Admin <div class="permission-counts" id="Admin-section"><span>-</span>/<span>-</span></div></a>
+                                            <a class="nav-link" id="v-pills-onboarding-tab" data-toggle="pill" href="#v-pills-onboarding" role="tab" aria-controls="v-pills-onboarding" aria-selected="false">On boarding <div class="permission-counts" id="Onboarding-section"><span>-</span>/<span>-</span></div></a>
+                                            <a class="nav-link" id="v-pills-account-mgt-tab" data-toggle="pill" href="#v-pills-account-mgt" role="tab" aria-controls="v-pills-account-mgt" aria-selected="false">User Account Manager <div class="permission-counts" id="UserAccounts-section"><span>-</span>/<span>-</span></div></a>
+                                            <a class="nav-link" id="v-pills-dev-tools-tab" data-toggle="pill" href="#v-pills-dev-tools" role="tab" aria-controls="v-pills-dev-tools" aria-selected="false">Development Tools <div class="permission-counts" id="DevTools-section"><span>-</span>/<span>-</span></div></a>
+                                            <a class="nav-link" id="v-pills-my-account-tab" data-toggle="pill" href="#v-pills-my-account" role="tab" aria-controls="v-pills-my-account" aria-selected="false">My Account <div class="permission-counts" id="MyAccount-section"><span>-</span>/<span>-</span></div></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                            <div class="tab-pane fade show active" id="v-pills-admin" role="tabpanel" aria-labelledby="v-pills-admin-tab">
+                                                <!-- ADMIN -->
+
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">View Firewalls</label>
+                                                    <input {{ ('Firewalls' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="Firewalls" data-parent="Admin" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Create Firewall</label>
+                                                    <input {{ ('FirewallCreation' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="FirewallCreation" data-parent="Admin" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">CreatePermissionGroup</label>
+                                                    <input {{ ('CreatePermissionGroup' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="CreatePermissionGroup" data-parent="Admin" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">ViewPermissionGroup</label>
+                                                    <input {{ ('ViewPermissionGroups' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="ViewPermissionGroups" data-parent="Admin" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Security Logs</label>
+                                                    <input {{ ('SecurityLogs' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="SecurityLogs" data-parent="Admin" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+                                                <!-- END ADMIN -->
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-onboarding" role="tabpanel" aria-labelledby="v-pills-onboarding-tab">
+                                                <!-- Onboarding -->
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Registration Settings</label>
+                                                    <input  {{ ('RegistrationSettings' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="RegistrationSettings" data-parent="Onboarding" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Create Invite</label>
+                                                    <input {{ ('CreateInvite' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="CreateInvite" data-parent="Onboarding" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Manage Invites</label>
+                                                    <input {{ ('ViewPendingInvites' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="ViewPendingInvites" data-parent="Onboarding" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+                                                <!-- END Onboarding -->
+
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-account-mgt" role="tabpanel" aria-labelledby="v-pills-account-mgt-tab">
+
+                                                <!-- account management -->
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Change permissions</label>
+                                                    <input {{ ('AccountPrivileges' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="AccountPrivileges" data-parent="UserAccounts" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Documents Manager</label>
+                                                    <input {{ ('DocumentsManager' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="DocumentsManager" data-parent="UserAccounts" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <!-- END account management -->
+
+                                            </div>
+                                            <div class="tab-pane fade" id="v-pills-dev-tools" role="tabpanel" aria-labelledby="v-pills-dev-tools-tab">
+                                                <!-- Dev Tools -->
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">File Manager</label>
+                                                    <input {{ ('TemplateManager' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="TemplateManager" data-parent="DevTools" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Page Editor</label>
+                                                    <input  {{ ('PageEditor' in PermissionsData.Permissions) ? 'checked="checked"' : '' }}class="permission" data-value="PageEditor" data-parent="DevTools" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Page Editor</label>
+                                                    <input  {{ ('ErrorLogs' in PermissionsData.Permissions) ? 'checked="checked"' : '' }}class="permission" data-value="ErrorLogs" data-parent="DevTools" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <!-- END Dev Tools -->
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="v-pills-my-account" role="tabpanel" aria-labelledby="v-pills-my-account-tab">
+                                                <!-- My Account -->
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Account Details</label>
+                                                    <input {{ ('AccountDetails' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="AccountDetails" data-parent="MyAccount" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Address Book</label>
+                                                    <input {{ ('AddressBook' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="AddressBook" data-parent="MyAccount" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Documents</label>
+                                                    <input  {{ ('MyDocuments' in PermissionsData.Permissions) ? 'checked="checked"' : '' }}class="permission" data-value="MyDocuments" data-parent="MyAccount" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+
+                                                <div class="form-check permission-checkbox-container">
+                                                    <label class="form-check-label">Login History</label>
+                                                    <input {{ ('MyLoginHistory' in PermissionsData.Permissions) ? 'checked="checked"' : '' }} class="permission" data-value="MyLoginHistory" data-parent="MyAccount" type="checkbox">
+                                                    <small class="text-muted">some long text explaining what this means</small>
+                                                </div>
+                                                <!-- End My Account -->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                {% if PermissionsData.ID is defined %}
+                                    <hr>
+                                    <p>{{ PermissionsData.TotalActive }} account(s) currently enrolled in this permission group.</p>
+                                    {% if  PermissionsData.TotalActive == 0 and PermissionsData.ID != 0 %}
+                                        <button type="button" class="btn btn-danger confirm" data-confirm="postRequest" data-keys="RemovePermission" data-values="{{ PermissionsData.EncryptedID }}">Delete Permission Group</button>
+                                    {% elseif(PermissionsData.ID == 0) %}
+                                        <small class="text-danger">You may not delete the default permission group.</small>
+                                    {% else %}
+                                        <small class="text-danger">All accounts enrolled in this permission must be switched over prior to deletion.</small>
+                                    {%  endif %}
+                                {%  endif %}
+                                <hr>
+                                {% if PermissionsData.ID is defined %}
+                                    <button type="button" class="set-permissions float-right btn btn-primary">Update Permission Group</button>
+                                {% else %}
+                                    <button type="button" class="set-permissions float-right btn btn-primary">Create Permission Group</button>
+                                {% endif %}
+                            </form>
+                        </div>
+
+                        <!-- ./card-body -->
+                        <div class="card-footer">
+
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+</div>

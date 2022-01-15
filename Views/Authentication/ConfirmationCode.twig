@@ -1,0 +1,9 @@
+<h1 class="h3 mb-3 font-weight-normal">Confirm Login</h1>
+<p class="text-danger" id="niceError"></p>
+<div class="form-group last first mb-5">
+    <label for="email">6 Digit Code</label>
+    <input type="text" class="form-control" id="forgotPassword" name="two_factor_code">
+</div>
+<input type="submit" value="Submit" class="btn btn-block btn-primary numeric_strict" required="required">
+<span class="d-block text-center my-4 text-muted">— or —</span>
+<button type="button" value="Log In" class="btn btn-block btn-danger postRequest" data-keys="ResendCode,SignatureOne,SignatureTwo" data-values="true,{{ account_ID }},{{ account_email }}" data-temp-txt="Code Resent!">Resend Code</button>

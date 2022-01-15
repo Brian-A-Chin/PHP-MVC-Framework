@@ -1,0 +1,103 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Error Logs</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="main-search-container">
+
+                                <div class="main-search">
+                                    <div class="input-group">
+                                    <span class="main-search-category">
+                                        <select class="form-control" id="Category">
+                                            <option value="Message">Message</option>
+                                            <option value="IP">IP</option>
+                                        </select>
+                                    </span>
+                                        <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="main-search" value="">
+                                        <span class="main-search-button">
+                                        <i class="fa fa-search" id="main-search-btn"></i>
+                                    </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="filter-container">
+
+                                <select class="form-control urlTuner" id="PageSize">
+                                    <option disabled="disabled">Page Limit</option>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+
+                            </div>
+                            <div class="filter-container">
+                                <div class="rangepicker form-control">
+                                    <i class="fa fa-calendar"></i>&nbsp;
+                                    <span></span> <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                            <div class="filter-container DateColumnSelector">
+                                <p class="text-success float-right" id="rangeFilterMsg" style="margin: 8px 8px 0 0;"></p>
+                                <select class="form-control urlTuner" id="DateColumn" data-toggle="tooltip" data-placement="top" title="Date column" style="text-transform:none!important">
+                                    <option selected disabled>Date column</option>
+                                </select>
+
+                            </div>
+                            <div class="filter-container">
+                                <button class="btn btn-primary" id="export">Export current view</button>
+                            </div>
+                            <div class="table-responsive master-table">
+                                <table class="pagination-table">
+                                    <thead>
+                                    <tr>
+                                        <th class="draggable-col">Exception</th>
+                                        <th class="setSort draggable-col" data-sort="">IP</th>
+                                        <th class="setSort draggable-col" data-type="datetime"  id="Posted" data-sort="DESC">Posted</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for key, value in Rows %}
+                                        <tr>
+                                            <td class="text-left"><br><p class="text-danger"><b>{{ value['Message'] }}</b></p>{{ value['Exception'] }}</td>
+                                            <td>{{ value['IP'] }}</td>
+                                            <td>{{ value['NiceDate'] }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- ./card-body -->
+                        <div class="card-footer">
+                            {% if Paging.TotalPages is  defined %}
+                                {{  PagingPartial|raw }}
+                            {% endif %}
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+</div>

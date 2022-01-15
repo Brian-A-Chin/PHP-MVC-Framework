@@ -1,0 +1,17 @@
+<div class="paging-dependant">
+    <div class="page-counter"><small>Page: {{ CurrentPage }} of {{ TotalPages }}</small></div>
+    <small>Showing Rows: {{ RowStartAt }} - <span class="row-count">{{ RowEndAt }}</span> of <span class="row-count">{{ TotalRows }}</span> results</small>
+    {% if TotalPages > 1 %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item {{ CurrentPage == 1 ? 'page-disabled' : '' }}" id="page1"><p class="page-link"><i class="fa fa-backward" aria-hidden="true"></i></p></li>
+                <li class="page-item pagnate {{ CurrentPage == 1 ? 'page-disabled' : '' }}" data-direction="pre"><p class="page-link"><i class="fa fa-caret-left fa-caret-big" aria-hidden="true"></i></p></li>
+                {% for i in range(PageStartAt, PageEndAt) %}
+                    <li class="page-item selector {{ CurrentPage == i ? 'active' : '' }}" id="page{{ i }}"><p class="page-link">{{ i }}</p></li>
+                {% endfor %}
+                <li class="page-item pagnate {{ CurrentPage == TotalPages ? 'page-disabled' : '' }}" data-direction="fwd"><p class="page-link"><i class="fa fa-caret-right fa-caret-big" aria-hidden="true"></i></p></li>
+                <li class="page-item {{ CurrentPage == TotalPages ? 'page-disabled' : '' }}" id="page{{ TotalPages }}"><p class="page-link"><i class="fa fa-forward" aria-hidden="true"></i></p></li>
+            </ul>
+        </nav>
+    {% endif %}
+</div>

@@ -1,0 +1,288 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="/Assets/Business/Logos/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">CMS</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+             <!-- <div class="image">
+                <img src="/Assets/Users/Profiles/sampleProfile.png" class="img-circle elevation-2" alt="User Image">
+            </div> -->
+            <div class="info">
+                <a href="#" class="d-block">{{ Identity }}</a>
+            </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+
+            {% if 'UserAccounts' in CurrentUserPermissions %}
+                <!-- User Account Management -->
+
+                <li class="nav-item">
+                    <a href="/account/explorer" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <p>
+                            Manage Accounts
+                        </p>
+                    </a>
+                </li>
+                <!-- END User Account Management -->
+            {% endif %}
+
+
+            {% if 'Admin' in CurrentUserPermissions %}
+            <!-- Admin -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>
+                            Security
+                            <i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+
+                    {% if 'Firewalls' in CurrentUserPermissions %}
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/account/admin/Firewalls" class="nav-link init-paging">
+                                    <p>
+                                        View Firewalls
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    {% endif %}
+
+                    {% if 'CreatePermissionGroup' in CurrentUserPermissions or 'ViewPermissionGroups' in CurrentUserPermissions %}
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <p>
+                                        Permissions Manager
+                                        <i class="right fas fa-angle-right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview" style="display: none;">
+                                    {% if 'CreatePermissionGroup' in CurrentUserPermissions %}
+                                        <li class="nav-item">
+                                            <a href="/account/admin/CreatePermissionGroup" class="nav-link">
+                                                <p>Create New Group</p>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if 'ViewPermissionGroups' in CurrentUserPermissions %}
+                                        <li class="nav-item">
+                                            <a href="/account/admin/ViewPermissionGroups" class="nav-link init-paging">
+                                                <p>View Groups</p>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        </ul>
+                    {% endif %}
+
+                    {% if 'SecurityLogs' in CurrentUserPermissions %}
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/account/admin/SecurityLogs" class="nav-link init-paging">
+                                <p>Security Logs</p>
+                            </a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </li>
+            <!-- END Admin -->
+            {% endif %}
+
+
+
+            {% if 'Onboarding' in CurrentUserPermissions %}
+             <!-- Onboarding -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-plus"></i>
+                        <p>
+                            Onboarding
+                            <i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        {% if 'RegistrationSettings' in CurrentUserPermissions %}
+                            <li class="nav-item">
+                                <a href="/account/admin/RegistrationSettings" class="nav-link">
+                                    <p>Registration Settings</p>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if 'CreateInvite' in CurrentUserPermissions %}
+                            <li class="nav-item">
+                                <a href="/account/admin/CreateInvite" class="nav-link">
+                                    <p>Create Invite</p>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if 'ViewPendingInvites' in CurrentUserPermissions %}
+                            <li class="nav-item">
+                                <a href="/account/admin/ViewPendingInvites" class="nav-link init-paging">
+                                    <p>Pending Invites</p>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                    </ul>
+                </li>
+            <!-- END Onboarding -->
+            {% endif %}
+
+
+            {% if 'DevTools' in CurrentUserPermissions %}
+            <!-- Development Tools -->
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-tools"></i>
+                        <p>
+                            Development Tools
+                            <i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <p>
+                                    Logs
+                                    <i class="right fas fa-angle-right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+
+                                {% if 'ErrorLogs' in CurrentUserPermissions %}
+                                    <li class="nav-item">
+                                        <a href="/account/admin/ErrorLogs" class="nav-link init-paging">
+                                            <p>Error</p>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav nav-treeview">
+                        {% if 'TemplateManager' in CurrentUserPermissions %}
+                            <li class="nav-item">
+                                <a href="/account/admin/TemplateManager" class="nav-link">
+                                    <p>
+                                        File Manager
+                                    </p>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        {% if 'PageEditor' in CurrentUserPermissions %}
+                            <li class="nav-item">
+                                <a href="/account/admin/PageEditor" class="nav-link">
+                                    <p>
+                                        Page Designer
+                                    </p>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+
+                </li>
+
+            <!-- END Development Tools -->
+            {%  endif %}
+
+            {% if 'MyAccount' in CurrentUserPermissions %}
+            <!-- My Account -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <p>
+                            My Account
+                            <i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        {% if 'AccountDetails' in CurrentUserPermissions %}
+                        <li class="nav-item">
+                            <a href="/account/manage/AccountDetails" class="nav-link">
+                                <p>Account</p>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if 'AddressBook' in CurrentUserPermissions %}
+                            <li class="nav-item">
+                                <a href="/account/manage/AddressBook" class="nav-link">
+                                    <p>Address Book</p>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if 'MyDocuments' in CurrentUserPermissions %}
+                            <li class="nav-item">
+                                <a href="/account/manage/MyDocuments" class="nav-link init-paging">
+                                    <p>Documents</p>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% if 'MyLoginHistory' in CurrentUserPermissions %}
+                        <li class="nav-item">
+                            <a href="/account/manage/MyLoginHistory" class="nav-link init-paging">
+                                <p>Login History</p>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </li>
+            <!-- END My Account -->
+            {%  endif %}
+
+                <li class="nav-item">
+                    <a href="#" onclick="Logout()" class="nav-link">
+                        <i class="fas fa-power-off"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

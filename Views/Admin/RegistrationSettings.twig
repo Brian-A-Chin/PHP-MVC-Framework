@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid col-sm-6">
+            <h1 class="m-0 text-center">Registration Settings</h1>
+            <hr>
+
+
+            <form class="aJaxForm" data-method="UpdateRegistrationSettings" method="post">
+
+                <div class="form-group last mb-3">
+                    <label for="RequireRegistrationCode">Require Registration Code</label>
+                    <br>
+                    <small class="text-muted"></small>
+
+                    <select class="form-control" id="RequireRegistrationCode" name="RequireRegistrationCode" required="required">
+                        <option value="0">No</option>
+                        <option value="1" {{ (Settings['RequireRegistrationCode']) ? 'selected="selected"' : '' }}>Yes</option>
+                    </select>
+                </div>
+
+
+                <hr>
+                <button class="btn btn-success" type="submit">Update</button>
+            </form>
+
+
+
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+</div>

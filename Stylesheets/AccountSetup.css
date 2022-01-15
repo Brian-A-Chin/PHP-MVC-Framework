@@ -1,0 +1,322 @@
+body,html {
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    padding: 0%;
+    margin: 0%;
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    position: relative!important;
+    color: #464d50;
+}
+
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], select:focus, textarea {
+    font-size: 16px!important;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 0px!important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent!important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: transparent!important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: transparent!important;
+}
+.info-block h5, li {
+    font-size: 1.1em;
+    color: #7a8388!important;
+    font-weight: 400;
+}
+
+.large-center-image{
+    width: 50%;
+    margin: auto;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+
+}
+
+.fc-content span{
+    color: #fff!important;
+
+}
+
+
+.child-img img{
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+.invisible{
+    display: none;
+}
+
+.stdr-md-img{
+
+    width: 15%;
+    height: auto;
+    margin: auto auto 2% auto;
+
+}
+
+.stdr-profile-img{
+
+    margin: auto auto 2% auto;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+
+
+}
+
+.stdr-profile-img img{
+
+    width: 100px;
+    height: 100px;
+
+
+}
+
+.cover{
+
+
+    object-fit:cover;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.overlay {
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .9;
+    background-color: #000000;
+    display: none;
+
+}
+
+.w-o {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.7;
+    background-color: #fff;
+
+
+}
+
+.loader{
+
+    background-image: url("/portfolio/welcome/assets/icons/loader.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.loading{
+
+    display: none;
+}
+
+
+.cover{
+    object-fit: cover
+}
+
+.contain{
+    object-fit: contain
+}
+
+
+
+/* overrides */
+
+
+
+label{
+
+    display: inline-flex!important;
+
+}
+
+select{
+    margin: 0 10px 0 10px;
+    display: block;
+    width: 150px;
+    height: 25px;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+
+}
+
+
+.clickable{
+    cursor: pointer;
+}
+
+.indent{
+    margin-left: 7px;
+}
+
+.middle-container{
+
+    width: 50%;
+    margin: 5% auto auto auto;
+
+
+}
+
+.center-btn{
+    margin: auto;
+    width: 100%;
+    padding-top: 2%;
+}
+
+.registration-container{
+    margin-left: auto!important;
+    margin-right: auto!important;
+    max-width: 850px;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 2%;
+    border-radius: 7px;
+    position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+
+
+    .registration-container{
+        border:unset;
+        padding: 4%;
+    }
+
+}
+
+.registration-container button{
+
+
+    text-align: center;
+    margin: auto;
+}
+
+.registration h4{
+    text-align: center;
+    line-height: 2;
+    font-weight: 200;
+    font-family: sans-serif;
+    color: #027bff;
+}
+
+.registration p, .registration li{
+    color: #a5a2a2;
+    font-family: sans-serif;
+    font-weight: 300;
+    line-height: 2;
+    text-align: left;
+}
+
+.phase{
+
+    display: none;
+}
+
+.phase small{
+
+    text-align: center!important;
+}
+
+.step-tracker{
+
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    padding-top: 10%;
+}
+
+.registration-container .btn-outline-danger{
+
+    float: left;
+
+}
+
+
+.registration-container .hidden{
+    display: block;
+}
+
+.registration-container .btn-outline-primary{
+
+    float: right;
+
+}
+#passwordStatus{
+    color: red!important;
+}
+#form_errors li,#passwordStatus{
+
+    color: red!important;
+    font-weight: bold!important;
+
+}

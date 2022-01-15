@@ -1,0 +1,8 @@
+.content-wrapper{
+    display: grid;
+    padding-bottom: 0!important;
+}
+
+.gjs-pn-devices-c{
+    height: 40px;
+}

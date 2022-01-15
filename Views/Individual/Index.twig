@@ -1,0 +1,70 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">{{ Name }}</h1>
+                    <p>{{ Email }}</p>
+                    <p>{{ PrimaryAddress }}</p>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Account/explorer">Accounts</a></li>
+                        <li class="breadcrumb-item active">Actions</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <p>Select a action below to get started.</p>
+                            <div class="input-group input-group-sm" style="width: 50%;margin:auto">
+                                <input type="text" class="form-control" placeholder="Filter">
+                            </div>
+                            <hr>
+                            <div class="tile-container default-width center">
+
+                                {% if 'AccountPrivileges' in CurrentUserPermissions %}
+                                    <div class="tile center-center" data-action="AccountPrivileges">
+                                        <p>Privileges</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if 'DocumentsManager' in CurrentUserPermissions %}
+                                    <div class="tile center-center" data-action="DocumentsManager">
+                                        <p>Manage Documents</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if 'DocumentsManager' in CurrentUserPermissions %}
+                                    <div class="tile center-center" data-action="AccountSettings">
+                                        <p>Account Settings</p>
+                                    </div>
+                                {% endif %}
+
+
+
+
+                            </div>
+
+                        </div>
+                        <!-- ./card-body -->
+                        <div class="card-footer">
+
+                        </div>
+                        <!-- /.card-footer -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+</div>
